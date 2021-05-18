@@ -1,0 +1,22 @@
+<div class="content" role="main">
+
+    <!-- Highlight Card -->
+    <div class="card highlight-card card-small">
+        <span>{{ title }}</span>
+    </div>
+
+    <!-- Resources -->
+    <h2>Roles</h2>
+    <p>Here are different roles help you get started:</p>
+
+    <div class="card-container">
+        <a class="card"  rel="noopener"
+            [routerLink]="['/employee/list']">
+            <span>Employees</span>
+        </a>
+        <a class="card" [routerLink]="['/admin/employee']" rel="noopener"
+            >
+            <span>Admin</span>
+        </a>
+    </div>
+</div>

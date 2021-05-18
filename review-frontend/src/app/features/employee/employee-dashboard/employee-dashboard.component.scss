@@ -1,0 +1,50 @@
+.container{
+    text-align: center;
+    .heading {
+        text-align: center;
+    }
+
+    .btn-container{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .form-container{
+        margin: auto;
+        border: 3px solid green;
+        padding: 10px;
+        width: 50%;
+    }
+    .action-btn{
+        display: flex;
+        gap: 13px;
+        flex-basis: 10%;
+    }
+    .form-div{
+        display: flex;
+        padding-bottom: 25px;
+    }
+    .form-field{
+        flex-basis: 50%;
+    }
+
+    .employee-name{
+        flex-basis: 40%;
+    }
+    mat-form-field{
+        width: 80%;
+    }
+
+    textarea {
+        min-height: 50px;
+    }
+
+    .btn-primary{
+        height: 60px;
+    }
+
+    .empty-message{
+        text-align: center;
+    }
+
+}

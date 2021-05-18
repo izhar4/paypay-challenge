@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>Admin View</h1>
+
+    <ng-container *ngIf="(empData$|async ) as employee">
+        <h1>Employee Name: {{employee.name}}</h1>
+    </ng-container>
+
+    <div class="form-container">
+        <h1>Add/View/Modify Reviews :</h1>
+        <form [formGroup]="reviewForm">
+            <div class="form-div" formArrayName="list" *ngFor="let emp of
+                reviewList?.controls; let i= index">
+                <div class="form-field" [formGroupName]="i">
+                    <mat-form-field>
+                        <mat-label>Review Text</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="review"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="action-btn">
+                    <ng-container *ngIf="i <(reviewList?.controls?.length -1)">
+                        <button class="btn-primary" mat-flat-button type='button' color="primary"
+                            (click)="updateItem(i)">Update Review</button>
+                    </ng-container>
+                    <button type='button' mat-fab color="warn"
+                        (click)="addNew(i)" aria-label="Example icon
+                        button with a delete icon" *ngIf="i ===
+                        (reviewList?.controls?.length -1)">
+                        <mat-icon>add</mat-icon>
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

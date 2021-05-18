@@ -1,0 +1,43 @@
+.container {
+    padding: 20px 20px 0px 10px;
+    text-align: center;
+    .btn-container{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .form-container{
+        margin: auto;
+        border: 3px solid green;
+        padding: 10px;
+        width: 50%;
+        
+    }
+    .action-btn{
+        display: flex;
+        gap: 13px;
+    }
+    .form-div{
+        display: flex;
+        padding-bottom: 25px;
+    }
+    .form-field{
+        flex-basis: 60%;
+    }
+
+    mat-form-field{
+        width: 80%;
+    }
+
+    textarea {
+        min-height: 50px;
+    }
+
+    .btn-primary{
+        height: 60px;
+    }
+
+    
+    
+
+}

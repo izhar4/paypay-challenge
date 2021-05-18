@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Admin View</h1>
+    <h1>Employee List (Add/View/Modify/Delete):</h1>
+    <div class="form-container">
+        <form [formGroup]="employee">
+            <div class="form-div" formArrayName="list" *ngFor="let emp of
+                emplList?.controls; let i= index">
+                <div class="form-field" [formGroupName]="i">
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name">
+                    </mat-form-field>
+                </div>
+                <div class="action-btn">
+                    <ng-container *ngIf="i <(emplList?.controls?.length -1)">
+                        <button mat-flat-button type='button' (click)="assignOthersToReview(emplList?.controls[i]?.value._id)" color="primary">Ask Others To Review</button>
+                        <button mat-flat-button type='button' color="primary"
+                            [routerLink]="['/admin/employee',
+                            emplList?.controls[i]?.value._id]">View
+                            Details</button>
+                        <button mat-flat-button type='button' color="primary"
+                            (click)="updateItem(i)">Update Employee</button>
+                        <button mat-fab color="warn" type='button'
+                            (click)="remove(i)" aria-label="Example icon
+                            button with a delete icon">
+                            <mat-icon>delete</mat-icon>
+
+                        </button>
+                    </ng-container>
+                    <button type='button' mat-fab color="warn"
+                        (click)="addNew(i)" aria-label="Example icon
+                        button with a delete icon" *ngIf="i ===
+                        (emplList?.controls?.length -1)">
+                        <mat-icon>add</mat-icon>
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

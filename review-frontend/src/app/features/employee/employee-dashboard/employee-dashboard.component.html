@@ -1,0 +1,32 @@
+<div class="container">
+    <ng-container *ngIf="(empData$ | async) as empData">
+        <h1>Employee Dashboard</h1>
+        <h1 class="heading">Welcome: {{empData.name}}</h1>
+    </ng-container>
+
+    <div class="form-container" >
+        <h1>Submit Assigned Reviews Feedback :</h1>
+        <form [formGroup]="reviewForm" *ngIf="reviewList?.length">
+            <div class="form-div" formArrayName="list" *ngFor="let emp of
+            reviewFormArr?.controls; let i= index">
+                <div class="form-field" [formGroupName]="i">
+                    <mat-form-field>
+                        <mat-label>Review Text</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="review"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="employee-name">
+                   <p> <strong>Employee Name : {{reviewList[i]?.employee_id?.name}}</strong></p>
+                </div>
+                <div class="action-btn">
+                    <button class="btn-primary" mat-flat-button type='button' color="primary"
+                        (click)="submitFeedback(i)">Submit Feedback</button>
+                </div>
+            </div>
+        </form>
+        <div class="empty-message" *ngIf="reviewList && !reviewList.length">
+            <h2>No reviews to be submit</h2>
+        </div>
+    </div>
+    
+</div>

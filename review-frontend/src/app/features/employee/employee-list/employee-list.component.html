@@ -1,0 +1,10 @@
+<div class="list-container">
+    <h1 class="heading">Select employee to proceed with :</h1>
+    <div class="card-container">
+        <ng-container *ngIf="(empList$ | async) as employeeList">
+            <a class="card" rel="noopener" *ngFor="let emp of employeeList" [routerLink]="['/employee', emp._id]">
+                <span>{{emp?.name}}</span>
+            </a>
+        </ng-container>
+    </div>
+</div>
